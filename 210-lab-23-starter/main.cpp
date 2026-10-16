@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
+#include <limits>
 #include "Goat.h"
 using namespace std;
 
@@ -43,6 +44,9 @@ int main() {
                 break;
             case 3:
                 list_goats(trip);
+                cout << "Press Enter to continue...";
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin.get();
                 break;
             case 4:
                 end = true;
@@ -56,6 +60,7 @@ int main() {
 
 int main_menu() {
     system("cls");
+    cout << endl;
     int choice;
     cout << "*** GOAT MANAGER 3001 ***" << endl;
     cout << "[1] Add a goat" << endl;
