@@ -29,9 +29,45 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
-
+    bool end = false;
+    list<Goat> trip;
+    while(!end) {
+        int choice = main_menu();
+        switch(choice) {
+            case 1:
+                add_goat(trip, names, colors);
+                break;
+            case 2:
+                delete_goat(trip);
+                break;
+            case 3:
+                display_trip(trip);
+                break;
+            case 4:
+                end = true;
+                break;
+        }
+    }
 
 
     return 0;
 }
 
+int main_menu() {
+    system("cls");
+    int choice;
+    cout << "*** GOAT MANAGER 3001 ***" << endl;
+    cout << "[1] Add a goat" << endl;
+    cout << "[2] Delete a goat" << endl;
+    cout << "[3] List goats" << endl;
+    cout << "[4] Exit" << endl;
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    if(choice < 1 || choice > 4) {
+        cout << "Invalid choice. Please try again." << endl;
+        return main_menu();
+    }
+
+    return choice;
+}
