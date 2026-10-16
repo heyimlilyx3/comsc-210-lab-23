@@ -86,3 +86,19 @@ int select_goat(list<Goat> trip) {
         trip.pop_front();
     }
 }
+
+void delete_goat(list<Goat> &trip) {
+    if(trip.empty()) {
+        cout << "No goats to delete." << endl;
+        return;
+    }
+    int choice = select_goat(trip);
+    if(choice < 1 || choice > trip.size()) {
+        cout << "Invalid choice. Please try again." << endl;
+        return;
+    }
+    auto it = trip.begin();
+    advance(it, choice - 1);
+    trip.erase(it);
+    cout << "Deleted goat #" << choice << "." << endl;
+}
